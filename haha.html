@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ FREE MINECRAFT COINS ⚠️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(45deg, black, #1a0000, black);
+            color: white;
+            font-family: 'Arial Black', 'Comic Sans MS', cursive;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        .container {
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 30px 80px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(45deg, #ff0000, #ff6600, #ffff00);
+            border: 5px solid yellow;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            animation: pulse 0.5s infinite;
+            text-shadow: 0 0 20px yellow;
+            box-shadow: 0 0 50px red, 0 0 100px orange;
+            letter-spacing: 3px;
+            margin: 20px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 50px red; }
+            50% { transform: scale(1.1); box-shadow: 0 0 100px orange; }
+            100% { transform: scale(1); box-shadow: 0 0 50px red; }
+        }
+        
+        .btn:hover {
+            background: linear-gradient(45deg, #ffff00, #ff6600, #ff0000);
+            transform: scale(1.2);
+            box-shadow: 0 0 150px yellow;
+        }
+        
+        .btn:active {
+            transform: scale(0.9);
+            box-shadow: 0 0 200px white;
+        }
+        
+        h1 {
+            font-size: 60px;
+            color: gold;
+            text-shadow: 0 0 30px orange;
+            animation: glitch 0.1s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px red; }
+            25% { text-shadow: -2px -2px blue; }
+            50% { text-shadow: 2px -2px green; }
+            75% { text-shadow: -2px 2px yellow; }
+            100% { text-shadow: 2px 2px red; }
+        }
+        
+        .subtitle {
+            font-size: 25px;
+            color: lime;
+            margin: 20px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .warning {
+            color: red;
+            font-size: 18px;
+            animation: warning 0.3s infinite;
+        }
+        
+        @keyframes warning {
+            0%, 100% { color: red; }
+            50% { color: yellow; }
+        }
+        
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkle 1s linear forwards;
+            color: gold;
+            font-size: 30px;
+        }
+        
+        @keyframes sparkle {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-100px) scale(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 FREE MINECRAFT COINS 🎮</h1>
+        <p class="subtitle">💰 1,000,000 FREE COINS 💰</p>
+        <p class="subtitle">🦸‍♂️ FREE HACK PREMIUM 🦸‍♂️</p>
+        <p class="subtitle">🎁 CLAIM YOUR GIFT NOW 🎁</p>
+        
+        <a href="/lol.html" target="_blank" class="btn" id="claimBtn">
+            🔥 CLAIM NOW! 🔥
+        </a>
+        
+        <p class="warning">⚠️ LIMITED TIME ONLY! ⚠️</p>
+        <p class="warning">⚠️ 99% OF USERS ALREADY CLAIMED! ⚠️</p>
+        
+        <marquee scrollamount="15" style="color: yellow; margin-top: 30px; font-size: 20px;">
+            🦠 CLICK THE BUTTON TO CLAIM YOUR FREE REWARD! 🦠 HA HA HA HA HA! 🦠 YOU KNOW YOU WANT TO! 🦠
+        </marquee>
+    </div>
+    
+    <script>
+        // Efek sparkle pas mouse gerak
+        document.addEventListener('mousemove', function(e) {
+            var sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = ['✨','💰','🌟','💎','🔥','🎁','⭐','💫'][Math.floor(Math.random()*8)];
+            sparkle.style.left = e.pageX + 'px';
+            sparkle.style.top = e.pageY + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(function() {
+                sparkle.remove();
+            }, 1000);
+        });
+        
+        // Klik di mana aja = claim juga
+        document.body.addEventListener('click', function(e) {
+            if (e.target.id !== 'claimBtn') {
+                document.getElementById('claimBtn').click();
+            }
+        });
+        
+        // Pop-up alert tambahan pas pertama buka
+        window.onload = function() {
+            setTimeout(function() {
+                alert("🎉 CONGRATULATIONS! 🎉\n\nYou've been selected to receive FREE Minecraft Coins!\n\nClick OK to claim your reward!");
+            }, 500);
+            
+            setTimeout(function() {
+                alert("⚠️ HURRY! ⚠️\n\nOnly 1 reward left!\n\nClaim before someone else takes it!");
+            }, 2000);
+        };
+        
+        // Anti-close halaman
+        window.onbeforeunload = function() {
+            return "⚠️ ARE YOU SURE? YOU'LL LOSE YOUR FREE REWARD! ⚠️";
+        };
+        
+        // Fullscreen pas klik
+        document.addEventListener('click', function() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>
